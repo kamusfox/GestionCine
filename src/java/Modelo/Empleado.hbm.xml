@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Empleado" table="empleado" catalog="sistemacine" optimistic-lock="version">
+        <id name="idEmpleado" type="java.lang.Integer">
+            <column name="idEmpleado" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cargos" class="Modelo.Cargos" fetch="select">
+            <column name="idCargo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="cine" class="Modelo.Cine" fetch="select">
+            <column name="idCine" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personas" class="Modelo.Personas" fetch="select">
+            <column name="idPersona" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

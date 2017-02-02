@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Personas" table="personas" catalog="sistemacine" optimistic-lock="version">
+        <id name="idPersona" type="java.lang.Integer">
+            <column name="idPersona" />
+            <generator class="identity" />
+        </id>
+        <property name="dni" type="string">
+            <column name="DNI" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="Apellidos" length="30" not-null="true" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="usuario" length="16" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="32" not-null="true">
+                <comment>MD5</comment>
+            </column>
+        </property>
+        <set name="clientes" table="cliente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPersona" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Cliente" />
+        </set>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPersona" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>

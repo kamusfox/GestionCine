@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Butaca" table="butaca" catalog="sistemacine" optimistic-lock="version">
+        <id name="idButaca" type="java.lang.Integer">
+            <column name="idButaca" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sala" class="Modelo.Sala" fetch="select">
+            <column name="idSala" />
+        </many-to-one>
+        <property name="libre" type="boolean">
+            <column name="libre" not-null="true" />
+        </property>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idButaca" />
+            </key>
+            <one-to-many class="Modelo.Reserva" />
+        </set>
+    </class>
+</hibernate-mapping>

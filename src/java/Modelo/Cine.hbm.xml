@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Cine" table="cine" catalog="sistemacine" optimistic-lock="version">
+        <id name="idCine" type="java.lang.Integer">
+            <column name="idCine" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="poblacion" class="Modelo.Poblacion" fetch="select">
+            <column name="idPoblacion" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="cif" type="string">
+            <column name="cif" length="9" not-null="true" unique="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="80" not-null="true" />
+        </property>
+        <property name="cp" type="int">
+            <column name="cp" not-null="true" />
+        </property>
+        <property name="telefono" type="int">
+            <column name="telefono" not-null="true" />
+        </property>
+        <set name="salas" table="sala" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCine" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Sala" />
+        </set>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCine" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Empleado" />
+        </set>
+        <set name="cabecerapedidos" table="cabecerapedido" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCine" />
+            </key>
+            <one-to-many class="Modelo.Cabecerapedido" />
+        </set>
+    </class>
+</hibernate-mapping>

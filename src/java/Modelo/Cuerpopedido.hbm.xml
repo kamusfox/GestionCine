@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Cuerpopedido" table="cuerpopedido" catalog="sistemacine" optimistic-lock="version">
+        <id name="idCuerpoPedido" type="java.lang.Integer">
+            <column name="idCuerpoPedido" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cabecerapedido" class="Modelo.Cabecerapedido" fetch="select">
+            <column name="idPedido" />
+        </many-to-one>
+        <many-to-one name="productos" class="Modelo.Productos" fetch="select">
+            <column name="idProducto" />
+        </many-to-one>
+        <property name="ctd" type="java.lang.Integer">
+            <column name="ctd" />
+        </property>
+    </class>
+</hibernate-mapping>

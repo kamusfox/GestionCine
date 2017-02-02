@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Sesion" table="sesion" catalog="sistemacine" optimistic-lock="version">
+        <id name="idSesion" type="java.lang.Integer">
+            <column name="idSesion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="pelicula" class="Modelo.Pelicula" fetch="select">
+            <column name="idPelicula" />
+        </many-to-one>
+        <many-to-one name="sala" class="Modelo.Sala" fetch="select">
+            <column name="idSala" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="hora" type="time">
+            <column name="hora" length="8" />
+        </property>
+        <property name="precio" type="java.lang.Float">
+            <column name="precio" precision="12" scale="0" />
+        </property>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSesion" />
+            </key>
+            <one-to-many class="Modelo.Reserva" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    font-size: 90.5%; /* Resets 1em to 10px */
+    font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    background-color: #4A4A4A;
+    background-image: url('images/Page-BgTexture.png');
+    background-repeat: repeat;
+    color: #C4C4C4;
+    width: 800px;
+}
+header{
+    background-image: url('images/Header.jpg');
+}
+#barranavegacion{
+    font-size: 120%;
+}
+.PageBackgroundGradient
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    background-image: url('images/Page-BgGradient.png');
+    background-repeat: repeat-x;
+    height: 900px;
+}
+.PageBackgroundGlareImage
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    background-image: url('images/Page-BgGlare.png');
+    background-repeat: no-repeat;
+    height: 482px;
+    width: 389px;
+    margin: 0;
+}

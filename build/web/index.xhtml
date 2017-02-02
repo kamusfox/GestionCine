@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">  
+
+    <h:head>  
+        <title>Gestion de Cines</title>
+        <h:outputScript library="js" name="bootstrap.min.js" />
+        <h:outputStylesheet library="css" name="bootstrap.css"/>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </h:head>  
+    <ui:include src="fragmentos/header.xhtml"/>
+    <ui:include src="fragmentos/navbar.xhtml"/>
+    <h:body>  
+        <div class="PageBackgroundGradient"></div>
+        <div class="PageBackgroundGlareImage"></div>
+        <div class="Main">
+            <p:dataTable var="cine" class="col-sm-12" value="#{cinePojo.listaCine}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{cine.idCine}"  />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{cine.nombre}" />
+                </p:column>
+                <p:column headerText="Cif">
+                    <h:outputText value="#{cine.cif}" />
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{cine.telefono}" />
+                </p:column>
+            </p:dataTable>
+            <ui:include src="fragmentos/footer.xhtml"/>
+        </div>
+    </h:body>  
+</html>  

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Cliente" table="cliente" catalog="sistemacine" optimistic-lock="version">
+        <id name="idCliente" type="java.lang.Integer">
+            <column name="idCliente" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="personas" class="Modelo.Personas" fetch="select">
+            <column name="idPersona" not-null="true" />
+        </many-to-one>
+        <property name="cp" type="int">
+            <column name="cp" not-null="true" />
+        </property>
+        <property name="puntos" type="java.lang.Integer">
+            <column name="puntos" />
+        </property>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCliente" />
+            </key>
+            <one-to-many class="Modelo.Reserva" />
+        </set>
+    </class>
+</hibernate-mapping>

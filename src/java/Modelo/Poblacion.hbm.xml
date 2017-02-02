@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Modelo.Poblacion" table="poblacion" catalog="sistemacine" optimistic-lock="version">
+        <id name="idPoblacion" type="java.lang.Integer">
+            <column name="idPoblacion" />
+            <generator class="identity" />
+        </id>
+        <property name="nomPoblacion" type="string">
+            <column name="nomPoblacion" length="20" not-null="true" />
+        </property>
+        <set name="proveedors" table="proveedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPoblacion" />
+            </key>
+            <one-to-many class="Modelo.Proveedor" />
+        </set>
+        <set name="cines" table="cine" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPoblacion" not-null="true" />
+            </key>
+            <one-to-many class="Modelo.Cine" />
+        </set>
+    </class>
+</hibernate-mapping>

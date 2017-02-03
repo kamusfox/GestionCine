@@ -5,7 +5,10 @@
         <group>
             <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/web/fragmentos/header.xhtml</file>
             <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/src/java/primefaces/UserLoginView.java</file>
+            <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/web/index.xhtml</file>
+            <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/src/java/Servlets/Login.java</file>
+            <file>file:/C:/Users/juanxxiii/Documents/NetBeansProjects/GestionCine/web/resources/js/funciones.js</file>
         </group>
     </open-files>
 </project-private>

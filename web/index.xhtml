@@ -7,6 +7,7 @@
     <h:head>  
         <title>Gestion de Cines</title>
         <h:outputScript library="js" name="bootstrap.min.js" />
+        <h:outputScript library="js" name="funciones.js" />
         <h:outputStylesheet library="css" name="bootstrap.css"/>
         <h:outputStylesheet library="css" name="estilos.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -16,6 +17,7 @@
     <h:body>  
         <div class="PageBackgroundGradient"></div>
         <div class="PageBackgroundGlareImage"></div>
+        <div>holo</div>
         <div class="Main">
             <p:dataTable var="cine" class="col-sm-12" value="#{cinePojo.listaCine}">
                 <p:column headerText="Id">

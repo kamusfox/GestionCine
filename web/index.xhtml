@@ -17,23 +17,29 @@
     <h:body>  
         <div class="PageBackgroundGradient"></div>
         <div class="PageBackgroundGlareImage"></div>
-        <div>holo</div>
         <div class="Main">
-            <p:dataTable var="cine" class="col-sm-12" value="#{cinePojo.listaCine}">
-                <p:column headerText="Id">
-                    <h:outputText value="#{cine.idCine}"  />
-                </p:column>
-                <p:column headerText="Nombre">
-                    <h:outputText value="#{cine.nombre}" />
-                </p:column>
-                <p:column headerText="Cif">
-                    <h:outputText value="#{cine.cif}" />
-                </p:column>
-                <p:column headerText="Telefono">
-                    <h:outputText value="#{cine.telefono}" />
-                </p:column>
-            </p:dataTable>
-            <ui:include src="fragmentos/footer.xhtml"/>
+            <h:form id="form">
+                <p:carousel value="#{cinePojo.listaCine}" headerText="Responsive" var="cine" itemStyle="text-align:center" >
+                    <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value"  styleClass="ui-panelgrid-blank">
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{cine.idCine}" />
+
+                        <h:outputText value="Nombre" />
+                        <h:outputText value="#{cine.nombre}" />
+
+                        <h:outputText value="Direccion:" />
+                        <h:outputText value="#{cine.direccion}"/>
+
+                        <h:outputText value="Codigo Postal" />
+                        <h:outputText value="#{cine.cp}" />
+                    </p:panelGrid>
+
+                    <f:facet name="footer">
+                        In total there are #{cinePojo.listaCine.size()} cines.
+                    </f:facet>
+                </p:carousel>
+            </h:form>
+                <ui:include src="fragmentos/footer.xhtml"/>
         </div>
     </h:body>  
 </html>  

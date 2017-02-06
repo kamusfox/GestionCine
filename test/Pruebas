@@ -1,0 +1,15 @@
+//Codigo de listado de peliculas
+            <p:dataTable var="cine" class="col-sm-12" value="#{cinePojo.listaCine}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{cine.idCine}"  />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{cine.nombre}" />
+                </p:column>
+                <p:column headerText="Cif">
+                    <h:outputText value="#{cine.cif}" />
+                </p:column>
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{cine.telefono}" />
+                </p:column>
+            </p:dataTable>

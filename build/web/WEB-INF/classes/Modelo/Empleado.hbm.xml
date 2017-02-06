@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 26, 2017 8:52:36 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 6, 2017 5:25:42 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Modelo.Empleado" table="empleado" catalog="sistemacine" optimistic-lock="version">
         <id name="idEmpleado" type="java.lang.Integer">
@@ -19,6 +19,9 @@
         </many-to-one>
         <property name="fechaInicio" type="date">
             <column name="fechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="imagen" type="binary">
+            <column name="imagen" />
         </property>
     </class>
 </hibernate-mapping>

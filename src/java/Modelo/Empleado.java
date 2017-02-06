@@ -1,5 +1,5 @@
 package Modelo;
-// Generated Jan 26, 2017 8:52:35 PM by Hibernate Tools 4.3.1
+// Generated Feb 6, 2017 5:25:41 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,15 +15,24 @@ public class Empleado  implements java.io.Serializable {
      private Cine cine;
      private Personas personas;
      private Date fechaInicio;
+     private byte[] imagen;
 
     public Empleado() {
     }
 
+	
     public Empleado(Cargos cargos, Cine cine, Personas personas, Date fechaInicio) {
+        this.cargos = cargos;
+        this.cine = cine;
+        this.personas = personas;
+        this.fechaInicio = fechaInicio;
+    }
+    public Empleado(Cargos cargos, Cine cine, Personas personas, Date fechaInicio, byte[] imagen) {
        this.cargos = cargos;
        this.cine = cine;
        this.personas = personas;
        this.fechaInicio = fechaInicio;
+       this.imagen = imagen;
     }
    
     public Integer getIdEmpleado() {
@@ -60,6 +69,13 @@ public class Empleado  implements java.io.Serializable {
     
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
+    }
+    public byte[] getImagen() {
+        return this.imagen;
+    }
+    
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
 

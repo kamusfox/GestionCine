@@ -1,5 +1,5 @@
 package Modelo;
-// Generated Jan 26, 2017 8:52:35 PM by Hibernate Tools 4.3.1
+// Generated Feb 6, 2017 5:25:41 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,15 +15,17 @@ public class Pelicula  implements java.io.Serializable {
      private String nombre;
      private Integer duracion;
      private Integer edad;
+     private byte[] imagen;
      private Set<Sesion> sesions = new HashSet<Sesion>(0);
 
     public Pelicula() {
     }
 
-    public Pelicula(String nombre, Integer duracion, Integer edad, Set<Sesion> sesions) {
+    public Pelicula(String nombre, Integer duracion, Integer edad, byte[] imagen, Set<Sesion> sesions) {
        this.nombre = nombre;
        this.duracion = duracion;
        this.edad = edad;
+       this.imagen = imagen;
        this.sesions = sesions;
     }
    
@@ -54,6 +56,13 @@ public class Pelicula  implements java.io.Serializable {
     
     public void setEdad(Integer edad) {
         this.edad = edad;
+    }
+    public byte[] getImagen() {
+        return this.imagen;
+    }
+    
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     public Set<Sesion> getSesions() {
         return this.sesions;
